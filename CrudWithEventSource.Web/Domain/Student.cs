@@ -10,11 +10,12 @@ namespace CrudWithEventSource.Web.Domain
            
         }
 
-        public Student(string name, string identificationNumber)
+        public Student(string name, string identificationNumber, Address address)
         {
             Guid.NewGuid();
             Name = name;
             IdentificationNumber = identificationNumber;
+            Address = address;
         }
 
         [Key]
@@ -25,6 +26,9 @@ namespace CrudWithEventSource.Web.Domain
 
         [Required]
         public string IdentificationNumber { get; private set; }
+
+        [Required]
+        public Address Address { get; private set; }
 
         public void UpdateIdentificationNumber(string newId)
         {

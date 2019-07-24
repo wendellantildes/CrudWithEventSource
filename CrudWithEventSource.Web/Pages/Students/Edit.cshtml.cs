@@ -7,6 +7,7 @@ using CrudWithEventSource.Web.Data;
 using CrudWithEventSource.Web.EventSourcing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrudWithEventSource.Web.Pages.Students
 {
@@ -31,6 +32,14 @@ namespace CrudWithEventSource.Web.Pages.Students
         [Display(Name = "Identification Number")]
         public string IdentificationNumber { get; set; }
 
+        [BindProperty]
+        [Required]
+        public string Street { get; set; }
+
+        [BindProperty]
+        [Required]
+        public string State { get; set; }
+
         [Required]
         [BindProperty]
         [Display(Name = "Logged User")]
@@ -38,18 +47,22 @@ namespace CrudWithEventSource.Web.Pages.Students
 
         public void OnGet(Guid id)
         {
-            var student = _context.Students.Single(x => x.Id == id);
+            var student = _context.Students.Include(x => x.Address).Single(x => x.Id == id);
             Name = student.Name;
             IdentificationNumber = student.IdentificationNumber;
+            State = student.Address.State;
+            Street = student.Address.Street;
         }
 
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
-                var student = _context.Students.Single(x => x.Id == Id);
+                var student = _context.Students.Include(x => x.Address).Single(x => x.Id == Id);
                 student.UpdateIdentificationNumber(IdentificationNumber);
                 student.UpdateName(Name);
+                student.Address.UpdateState(State);
+                student.Address.UpdateStreet(Street);
                 _context.Students.Update(student);
                 if (_context.SaveChanges() > 0)
                 {

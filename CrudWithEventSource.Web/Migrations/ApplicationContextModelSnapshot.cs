@@ -16,6 +16,27 @@ namespace CrudWithEventSource.Web.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("CrudWithEventSource.Web.Domain.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("State")
+                        .IsRequired();
+
+                    b.Property<string>("Street")
+                        .IsRequired();
+
+                    b.Property<Guid>("StudentId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId")
+                        .IsUnique();
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("CrudWithEventSource.Web.Domain.Student", b =>
                 {
                     b.Property<Guid>("Id")
@@ -75,6 +96,14 @@ namespace CrudWithEventSource.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StoredEvents");
+                });
+
+            modelBuilder.Entity("CrudWithEventSource.Web.Domain.Address", b =>
+                {
+                    b.HasOne("CrudWithEventSource.Web.Domain.Student")
+                        .WithOne("Address")
+                        .HasForeignKey("CrudWithEventSource.Web.Domain.Address", "StudentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

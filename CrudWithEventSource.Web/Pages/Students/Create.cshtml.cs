@@ -29,6 +29,14 @@ namespace CrudWithEventSource.Web.Pages.Students
         [Required]
         public string IdentificationNumber { get; set; }
 
+        [BindProperty]
+        [Required]
+        public string Street { get; set; }
+
+        [BindProperty]
+        [Required]
+        public string State { get; set; }
+
         [Required]
         [BindProperty]
         [Display(Name = "Logged User")]
@@ -38,7 +46,8 @@ namespace CrudWithEventSource.Web.Pages.Students
         {
             if (ModelState.IsValid)
             {
-                var student = new Student(Name, IdentificationNumber);
+                var address = new Address(Street, State);
+                var student = new Student(Name, IdentificationNumber, address);
                 _context.Students.Add(student);
                 if (_context.SaveChanges() > 0)
                 {

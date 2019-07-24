@@ -32,6 +32,8 @@ namespace CrudWithEventSource.Web.Pages.Students
                 {
                     Name = student.Name,
                     IdentificationNumber = student.IdentificationNumber,
+                    Street = student.Address.Street,
+                    State = student.Address.State,
                     Action = se.Action,
                     CreationDate = se.CreationDate,
                     User = se.User
@@ -44,6 +46,10 @@ namespace CrudWithEventSource.Web.Pages.Students
             public string Name { get; set; }
 
             public string IdentificationNumber { get; set; }
+
+            public string Street { get; set; }
+
+            public string State { get; set; }
 
             public string Action { get; set; }
 
