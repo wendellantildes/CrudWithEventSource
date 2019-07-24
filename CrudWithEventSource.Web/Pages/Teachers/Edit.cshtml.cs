@@ -26,6 +26,7 @@ namespace CrudWithEventSource.Web.Pages.Teachers
         public string Name { get; set; }
 
         [Required]
+        [EmailAddress]
         [BindProperty]
         public string Email { get; set; }
 
