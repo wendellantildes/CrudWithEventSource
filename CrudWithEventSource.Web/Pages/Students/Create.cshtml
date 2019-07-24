@@ -1,0 +1,34 @@
+﻿@page
+@model CreateModel
+@{
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Students</li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
+<a asp-page="./Index" name="Index" class="btn btn-primary" role="button" style="margin-bottom:10px;">Index</a>
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.LoggedUser"></label>
+        <input asp-for="@Model.LoggedUser" class="form-control" />
+        <span asp-validation-for="@Model.LoggedUser" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.IdentificationNumber"></label>
+        <input asp-for="@Model.IdentificationNumber" class="form-control" />
+        <span asp-validation-for="@Model.IdentificationNumber" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary"/>
+</form>

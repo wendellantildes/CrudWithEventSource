@@ -1,0 +1,35 @@
+﻿@page "{id}"
+@model HistoryModel
+@{
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">Students</li>
+        <li class="breadcrumb-item active" aria-current="page">History</li>
+    </ol>
+</nav>
+<a asp-page="./Index" name="Index" class="btn btn-primary" role="button" style="margin-bottom:10px;">Index</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Identification Number</th>
+            <th>Action</th>
+            <th>Date</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var modification in Model.Modifications)
+        {
+            <tr>
+                <td>@modification.Name</td>
+                <td>@modification.IdentificationNumber</td>
+                <td>@modification.Action</td>
+                <td>@modification.CreationDate</td>
+                <td>@modification.User</td>
+            </tr>
+        }
+    </tbody>
+</table>
