@@ -20,5 +20,7 @@
     <Folder Include="EventsModel\" />
     <Folder Include="EventSourcing\" />
     <Folder Include="Pages\Teachers\" />
+    <Folder Include="Domain\Students\" />
+    <Folder Include="Domain\Teachers\" />
   </ItemGroup>
 </Project>

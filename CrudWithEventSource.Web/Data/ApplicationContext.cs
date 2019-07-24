@@ -1,5 +1,7 @@
 ﻿using System;
 using CrudWithEventSource.Web.Domain;
+using CrudWithEventSource.Web.Domain.Students;
+using CrudWithEventSource.Web.Domain.Teachers;
 using CrudWithEventSource.Web.EventsModel;
 using Microsoft.EntityFrameworkCore;
 

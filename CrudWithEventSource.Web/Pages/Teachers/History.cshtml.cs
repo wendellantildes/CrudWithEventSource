@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CrudWithEventSource.Web.Data;
 using CrudWithEventSource.Web.Domain;
+using CrudWithEventSource.Web.Domain.Teachers;
 using CrudWithEventSource.Web.EventsModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

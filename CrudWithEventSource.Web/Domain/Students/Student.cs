@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CrudWithEventSource.Web.Domain
+namespace CrudWithEventSource.Web.Domain.Students
 {
-    public class Student
+    public class Student : IAggregationRoot
     {
         protected Student()
         {

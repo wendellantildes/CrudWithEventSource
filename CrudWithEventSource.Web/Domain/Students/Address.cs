@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CrudWithEventSource.Web.Domain
+namespace CrudWithEventSource.Web.Domain.Students
 {
     public class Address
     {

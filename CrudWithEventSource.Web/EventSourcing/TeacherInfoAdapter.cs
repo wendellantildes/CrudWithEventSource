@@ -1,5 +1,6 @@
 ﻿using System;
 using CrudWithEventSource.Web.Domain;
+using CrudWithEventSource.Web.Domain.Teachers;
 using CrudWithEventSource.Web.EventsModel;
 
 namespace CrudWithEventSource.Web.EventSourcing
