@@ -37,6 +37,19 @@ namespace CrudWithEventSource.Web.Migrations
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Teachers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teachers", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -46,6 +59,9 @@ namespace CrudWithEventSource.Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "Students");
+
+            migrationBuilder.DropTable(
+                name: "Teachers");
         }
     }
 }

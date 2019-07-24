@@ -19,5 +19,6 @@
     <Folder Include="Data\" />
     <Folder Include="EventsModel\" />
     <Folder Include="EventSourcing\" />
+    <Folder Include="Pages\Teachers\" />
   </ItemGroup>
 </Project>

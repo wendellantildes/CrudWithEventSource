@@ -19,6 +19,7 @@ namespace CrudWithEventSource.Web.Data
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<StoredEvent> StoredEvents { get; set; } //better in a different context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

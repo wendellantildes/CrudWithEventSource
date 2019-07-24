@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudWithEventSource.Web.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190724021904_InitialCreate")]
+    [Migration("20190724031251_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,22 @@ namespace CrudWithEventSource.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("CrudWithEventSource.Web.Domain.Teacher", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("CrudWithEventSource.Web.EventsModel.StoredEvent", b =>

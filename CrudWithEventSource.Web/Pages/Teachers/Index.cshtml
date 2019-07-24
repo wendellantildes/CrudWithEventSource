@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Teachers</li>
+    </ol>
+</nav>
+
+<a asp-page="./Create" name="New" class="btn btn-primary" role="button" style="margin-bottom:10px;">New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model.Teachers)
+        {
+            <tr>
+                <td>@teacher.Name</td>
+                <td><a asp-page="./Edit" asp-route-id="@teacher.Id" name="Edit">Edit</a> <a asp-page="./History" asp-route-id="@teacher.Id" name="History">History</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

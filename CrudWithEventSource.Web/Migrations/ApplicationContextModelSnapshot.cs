@@ -32,6 +32,22 @@ namespace CrudWithEventSource.Web.Migrations
                     b.ToTable("Students");
                 });
 
+            modelBuilder.Entity("CrudWithEventSource.Web.Domain.Teacher", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teachers");
+                });
+
             modelBuilder.Entity("CrudWithEventSource.Web.EventsModel.StoredEvent", b =>
                 {
                     b.Property<Guid>("Id")
